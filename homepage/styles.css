@@ -1,6 +1,6 @@
 :root{--bg:#0f1724;--card:#0b1220;--accent:#7c3aed;--muted:#9aa4b2;--glass:rgba(255,255,255,0.03)}
 *{box-sizing:border-box;font-family:Inter, system-ui, -apple-system, "Apple SD Gothic Neo", "Malgun Gothic", Noto Sans KR, sans-serif}
-body{margin:0;background:linear-gradient(180deg,#071129 0%, #081426 60%);color:#e6eef8;line-height:1.6}
+body{margin:2;background:linear-gradient(180deg,#071129 0%, #081426 60%);color:#e6eef8;line-height:1.6}
 .container{max-width:900px;margin:48px auto;padding:28px;background:linear-gradient(180deg,var(--glass),transparent);border-radius:12px;box-shadow:0 6px 30px rgba(2,6,23,0.6)}
 header{display:flex;align-items:center;gap:16px}
 .logo{width:64px;height:64px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#2dd4bf);display:flex;align-items:center;justify-content:center;font-weight:700;color:#031124}

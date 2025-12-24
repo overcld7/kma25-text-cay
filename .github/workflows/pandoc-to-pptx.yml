@@ -27,7 +27,6 @@ jobs:
       - name: Convert markdown to pptx using template
         # slide.md 경로와 template.pptx 경로를 필요에 맞게 조정하세요.
         run: |
-          cd pptx
           pandoc pptx/slide.md -o pptx/slide.pptx
 
       - name: List build artifacts

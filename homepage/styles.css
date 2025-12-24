@@ -1,97 +1,105 @@
 :root {
-    --bg: #0f1724;
-    --card: #0b1220;
-    --accent: #7c3aed;
-    --muted: #9aa4b2;
-    --glass: rgba(255, 255, 255, 0.03);
-    --text: #e6eef8;
-    --transition: all 0.3s ease;
+    /* Updated for Light Mode */
+    --bg: #ffffff; /* Clean white background */
+    --card: #f8fafc; /* Light grey-blue for container */
+    --accent: #ff2d75; /* Vibrant Pink Point Color */
+    --muted: #64748b; /* Darker muted text for readability */
+    --glass: rgba(0, 0, 0, 0.05); /* Darker glass effect for light bg */
 }
 
-/* Light Mode Variables */
-.light-mode {
-    --bg: #f8fafc;
-    --card: #ffffff;
-    --accent: #6366f1;
-    --muted: #64748b;
-    --glass: rgba(0, 0, 0, 0.05);
-    --text: #1e293b;
+* {
+    box-sizing: border-box;
+    font-family: Inter, system-ui, -apple-system, "Apple SD Gothic Neo", "Malgun Gothic", Noto Sans KR, sans-serif;
 }
 
-* { box-sizing: border-box; font-family: Inter, system-ui, sans-serif; }
-
-body { 
-    margin: 0; 
-    background: var(--bg); 
-    color: var(--text); 
-    line-height: 1.6; 
-    transition: var(--transition);
+body {
+    margin: 0;
+    /* Changed background to light gradient (White to subtle Yellow-Green) */
+    background: linear-gradient(180deg, #ffffff 0%, #f0fdf4 100%); 
+    color: #1e293b; /* Dark text for contrast */
+    line-height: 1.6;
 }
 
-/* --- Navigation Bar --- */
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2rem;
-    background: var(--card);
-    border-bottom: 1px solid var(--glass);
-}
-
-.nav-links {
-    display: flex;
-    gap: 20px;
-    list-style: none;
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: var(--muted);
-    font-weight: 500;
-    transition: var(--transition);
-}
-
-/* Hover Effect: Navigation */
-.nav-links a:hover {
-    color: var(--accent);
-}
-
-/* --- Dark Mode Toggle Button --- */
-#mode-toggle {
-    cursor: pointer;
-    padding: 8px 16px;
-    border-radius: 8px;
-    border: 1px solid var(--glass);
-    background: var(--glass);
-    color: var(--text);
-    transition: var(--transition);
-}
-
-/* Hover Effect: Button */
-#mode-toggle:hover {
-    background: var(--accent);
-    color: white;
-    transform: translateY(-2px);
-}
-
-/* --- Existing Styles with Hover Improvements --- */
 .container {
     max-width: 900px;
     margin: 48px auto;
     padding: 28px;
-    background: var(--card); /* Changed to use variable */
+    /* Uses the light card variable */
+    background: var(--card);
     border-radius: 12px;
-    box-shadow: 0 6px 30px rgba(0,0,0,0.2);
+    /* Softer shadow for light mode */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-/* Hover Effect: Section Cards */
+header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.logo {
+    width: 64px;
+    height: 64px;
+    border-radius: 10px;
+    /* Updated Point Color: Pink Gradient */
+    background: linear-gradient(135deg, var(--accent), #ff85a2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    color: #ffffff; /* White text on pink logo */
+}
+
+h1 {
+    margin: 0;
+    font-size: 1.6rem;
+    color: #0f172a;
+}
+
+p.lead {
+    margin: 8px 0 20px;
+    color: var(--muted);
+}
+
 section {
-    padding: 12px 16px;
-    border-top: 1px solid var(--glass);
-    transition: var(--transition);
-    border-radius: 8px;
+    padding: 12px 0;
+    /* Darker border for visibility on light background */
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-section:hover {
-    background: var(--glass);
+h2 {
+    margin: 6px 0;
+    color: #0f172a; /* Dark headers */
+    font-size: 1.1rem;
+}
+
+ul {
+    margin: 8px 0 0;
+    padding-left: 20px;
+    color: var(--muted);
+}
+
+.badge {
+    display: inline-block;
+    padding: 6px 10px;
+    /* Subtle pink tint for badges */
+    background: rgba(255, 45, 117, 0.1);
+    border-radius: 999px;
+    color: var(--accent); /* Pink text for badge */
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+footer {
+    margin-top: 18px;
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+@media (max-width: 640px) {
+    .container {
+        margin: 20px;
+        padding: 18px;
+    }
 }

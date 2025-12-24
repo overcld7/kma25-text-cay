@@ -22,7 +22,7 @@ jobs:
         run: pandoc --version
 
       - name: Create output directory
-        run: mkdir -p build
+        run: mkdir build
 
       - name: Convert markdown to pptx using template
         # slide.md 경로와 template.pptx 경로를 필요에 맞게 조정하세요.

@@ -1,0 +1,49 @@
+name: Build PPTX with Pandoc
+
+on:
+  push:
+    paths:
+      - 'pptx/**'
+  workflow_dispatch:
+
+jobs:
+  build-pptx:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install prerequisites (pandoc)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pandoc
+
+      - name: Show pandoc version
+        run: pandoc --version
+
+      - name: Create output directory
+        run: mkdir -p build
+
+      - name: Convert markdown to pptx using template
+        # slide.md 경로와 template.pptx 경로를 필요에 맞게 조정하세요.
+        run: |
+          INPUT="pptx/slide.md"
+          OUTPUT="build/slide.pptx"
+          TEMPLATE="pptx/template.pptx" # repo에 템플릿 파일을 넣어두세요
+          # --slide-level: 헤더 수준(예: # -> 새 슬라이드)
+          # --resource-path: 이미지 등 리소스 검색 경로
+          if [ -f "$TEMPLATE" ]; then
+            pandoc "$INPUT" -t pptx -o "$OUTPUT" --reference-doc="$TEMPLATE" --slide-level=1 --resource-path=pptx
+          else
+            # 템플릿이 없으면 기본 디자인으로 생성
+            pandoc "$INPUT" -t pptx -o "$OUTPUT" --slide-level=1 --resource-path=pptx
+          fi
+
+      - name: List build artifacts
+        run: ls -la build
+
+      - name: Upload PPTX artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: slide-pptx
+          path: build/slide.pptx

@@ -21,7 +21,7 @@ jobs:
 
       - name: Convert markdown/slide.md to PPTX
         run: |
-          mkdir -p generated
+          cd markdown
           pandoc markdown/slide.md -o generated/slide.pptx
 
       - name: Commit and push generated PPTX
